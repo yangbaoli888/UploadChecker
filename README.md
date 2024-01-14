@@ -6,4 +6,4 @@
 
 ## 一、主要类关系图
 
-![类关系图](/Users/sftc/mySpace/javaWorkspace/UploadChecker/README.assets/类关系图.png)
+![类关系图](src/main/resources/pic/类关系图.png)
