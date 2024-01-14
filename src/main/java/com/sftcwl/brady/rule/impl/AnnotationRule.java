@@ -62,7 +62,7 @@ public class AnnotationRule extends FieldRule {
                     try {
                         DateTime dateTime = DateUtil.parse(value, format);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        //e.printStackTrace();
                         return CheckResult.failed(this.getFieldName() + "格式不正确");
                     }
                 } else if (annotationType.equals(Number.class)) {

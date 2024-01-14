@@ -55,7 +55,7 @@ public abstract class AbstractChecker<T> implements IChecker<T> {
     }
 
     @Override
-    public T rowCheck(T row) {
+    public final T rowCheck(T row) {
         long rowId = rowNumber.addAndGet(1L);
         for (Field field : fields) {
             String fieldName = field.getName();
@@ -94,7 +94,7 @@ public abstract class AbstractChecker<T> implements IChecker<T> {
         NonRepeatRule<T> nonRepeatRule = new NonRepeatRule<>(repeatableList, fields);
         for (int i = 0; i < rows.size(); i++) {
             CheckResult check = nonRepeatRule.check(rows.get(i));
-            setErrMessages((long) i, check);
+            setErrMessages((long) i + 1, check);
         }
         return rows;
     }
@@ -106,11 +106,11 @@ public abstract class AbstractChecker<T> implements IChecker<T> {
      * 注册校验规则
      * @param rule
      */
-    protected void registerRule(@NotNull FieldRule rule) {
+    public final void registerRule(@NotNull FieldRule rule) {
         this.RULE_MAP.put(rule.getFieldName(), rule);
     }
 
-    protected void registerRule(@NotNull List<FieldRule> rules) {
+    public final void registerRule(@NotNull List<FieldRule> rules) {
         for (FieldRule rule : rules) {
             this.RULE_MAP.put(rule.getFieldName(), rule);
         }

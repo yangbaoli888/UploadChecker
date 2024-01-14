@@ -27,6 +27,7 @@ public class MainTest {
             student.setAge("5");
             student.setSex("3");
             student.setBirthDay("20240113");
+            student.setPhoneNumber("1113332");
             students.add(student);
         }
 

@@ -29,4 +29,7 @@ public class Student {
 
     @Date(format = "yyyy/MM/dd HH:mm:ss")
     private String birthDay;
+
+    @Require
+    private String phoneNumber;
 }
